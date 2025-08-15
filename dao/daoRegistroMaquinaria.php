@@ -18,6 +18,7 @@ define('RUTA_RESGUARDO', 'dao/evidencias/resguardo/');
  * @return string|null El nombre del archivo guardado o null si no hay archivo o hay un error.
  */
 function handleFileUpload($fileData, $targetDirectory) {
+    // Verificar si el archivo fue subido y no hay errores.
     if (isset($fileData) && $fileData['error'] === UPLOAD_ERR_OK) {
         $fileTmpPath = $fileData['tmp_name'];
         $fileName = basename($fileData['name']); // basename() para seguridad
@@ -25,11 +26,12 @@ function handleFileUpload($fileData, $targetDirectory) {
         $newFileName = uniqid('', true) . '.' . $fileExtension;
         $dest_path = $targetDirectory . $newFileName;
 
+        // Mover el archivo de la carpeta temporal a la carpeta de destino.
         if (move_uploaded_file($fileTmpPath, $dest_path)) {
-            return $newFileName;
+            return $newFileName; // Devolver solo el nombre del archivo.
         }
     }
-    return null;
+    return null; // Devolver null si no se subió archivo o hubo un error.
 }
 
 // --- 2. PROCESAMIENTO DE LA SOLICITUD ---
@@ -49,7 +51,7 @@ try {
     // --- VERIFICACIÓN DE ARCHIVOS OBLIGATORIOS ---
     // Esta es la validación clave para evitar el error 'cannot be null'.
     if (!isset($_FILES['imagen_estacion']) || $_FILES['imagen_estacion']['error'] !== UPLOAD_ERR_OK) {
-        throw new Exception("El archivo 'Imagen de la Estación' es obligatorio y no se recibió correctamente.");
+        throw new Exception("El archivo 'Imagen de la Estación' es obligatorio y no se recibió correctamente. Revisa los límites de subida en tu servidor.");
     }
     // Puedes añadir más validaciones aquí para otros campos si es necesario.
 
@@ -59,13 +61,15 @@ try {
     $imagenEntradaNombre = handleFileUpload($_FILES['evidencia_entrada'] ?? null, RUTA_ENTRADAS);
     $imagenResguardoNombre = handleFileUpload($_FILES['evidencia_resguardo'] ?? null, RUTA_RESGUARDO);
 
+    echo $imagenEstacionNombre;
+
     // --- 3. INSERCIÓN EN LA BASE DE DATOS ---
     $con = new LocalConector();
     $conex = $con->conectar();
 
     $Object = new DateTime();
-    $Object->setTimezone(new DateTimeZone('America/Denver'));
-    $DateAndTime = $Object->format("Y/m/d h:i:s");
+    $Object->setTimezone(new DateTimeZone('America/Denver')); // Considera usar 'America/Mexico_City' si aplica
+    $DateAndTime = $Object->format("Y-m-d H:i:s");
 
     $stmt = $conex->prepare(
         "INSERT INTO `Maquinaria` (
@@ -78,7 +82,7 @@ try {
     $stmt->bind_param("sssssssssssssss",
         $proyecto, $nombreEstacion, $responsable, $activoFijo, $imagenEstacionNombre,
         $disposicion, $empresa, $nombreExterno, $numeroExterno, $direccionExterno,
-        $correoExterno, $imagenSalidaNombre, $imagenEntradaNombre, $imagenResguardoNombre,$DateAndTime
+        $correoExterno, $imagenSalidaNombre, $imagenEntradaNombre, $imagenResguardoNombre, $DateAndTime
     );
 
     $stmt->execute();
