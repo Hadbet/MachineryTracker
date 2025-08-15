@@ -46,7 +46,7 @@ try {
     $nombreExterno = $_POST['contacto_nombre'] ?? '';
     $numeroExterno = $_POST['contacto_telefono'] ?? '';
     $direccionExterno = $_POST['contacto_direccion'] ?? '';
-    $correoExterno = null;
+    $correoExterno = $_POST['contacto_correo'] ?? '';
 
     // --- VERIFICACIÓN DE ARCHIVOS OBLIGATORIOS ---
     // Esta es la validación clave para evitar el error 'cannot be null'.
