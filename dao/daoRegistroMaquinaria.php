@@ -5,10 +5,10 @@
 include_once('db/db_Machinery.php');
 
 // --- 1. DEFINICIÓN DE RUTAS PARA GUARDAR IMÁGENES ---
-define('RUTA_ESTACION', 'dao/evidencias/estacion/');
-define('RUTA_SALIDAS', 'dao/evidencias/salidas/');
-define('RUTA_ENTRADAS', 'dao/evidencias/entradas/');
-define('RUTA_RESGUARDO', 'dao/evidencias/resguardo/');
+define('RUTA_ESTACION', 'evidencias/estacion/');
+define('RUTA_SALIDAS', 'evidencias/salidas/');
+define('RUTA_ENTRADAS', 'evidencias/entradas/');
+define('RUTA_RESGUARDO', 'evidencias/resguardo/');
 
 /**
  * Función de ayuda para manejar la subida de archivos de imagen.
