@@ -56,9 +56,9 @@
 
         <!-- Desktop Menu -->
         <div class="hidden md:flex items-center space-x-6">
-            <a href="#" class="hover:text-blue-300 transition-colors">Inicio</a>
+            <a href="inicio.php" class="hover:text-blue-300 transition-colors">Inicio</a>
             <a href="#" class="hover:text-blue-300 transition-colors">Pendientes</a>
-            <a href="#" class="hover:text-blue-300 transition-colors">Histórico</a>
+            <a href="historico.php" class="hover:text-blue-300 transition-colors">Histórico</a>
             <a href="#" class="hover:text-blue-300 transition-colors">Perfil</a>
         </div>
 
