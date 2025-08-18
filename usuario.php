@@ -215,8 +215,8 @@
                 row.innerHTML = `
                         <td class="px-6 py-4">${user.Nomina}</td>
                         <td class="px-6 py-4 font-medium text-gray-900">${user.Nombre}</td>
-                        <td class="px-6 py-4">${user.Rol == '1' ? 'Admin' : 'Usuario'}</td>
-                        <td class="px-6 py-4">${user.Estatus == '1' ? '<span class="text-green-600 font-semibold">Activo</span>' : '<span class="text-red-600 font-semibold">Inactivo</span>'}</td>
+                        <td class="px-6 py-4">${user.rol == '1' ? 'Admin' : 'Usuario'}</td>
+                        <td class="px-6 py-4">${user.estatus == '1' ? '<span class="text-green-600 font-semibold">Activo</span>' : '<span class="text-red-600 font-semibold">Inactivo</span>'}</td>
                         <td class="px-6 py-4 font-mono">********</td>
                         <td class="px-6 py-4"><button class="px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600">Editar</button></td>
                     `;
