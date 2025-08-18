@@ -42,6 +42,7 @@ try {
                 header('Content-Type: application/json');
                 echo json_encode(["success" => true, "message" => "Login exitoso. Redirigiendo..."]);
 
+
             } else {
                 // El usuario existe pero está inactivo.
                 throw new Exception("Tu cuenta está inactiva. Contacta al administrador.");
