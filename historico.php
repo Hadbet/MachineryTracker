@@ -29,18 +29,7 @@
 
 <!-- Header Navigation -->
 <header class="bg-gray-800 text-white shadow-lg">
-    <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-        <div class="flex items-center">
-            <img src="images/logoWhite.png" alt="Logo de Grammer" class="h-10 w-10 mr-3 rounded-full">
-            <h1 class="text-xl font-bold">Machinery Tracker</h1>
-        </div>
-        <div class="hidden md:flex items-center space-x-6">
-            <a href="inicio.php" class="hover:text-blue-300 transition-colors">Inicio</a>
-            <a href="usuario.php" class="hover:text-blue-300 transition-colors">Usuarios</a>
-            <a href="historico.php" class="text-blue-300 font-semibold border-b-2 border-blue-300">Estaciones</a>
-            <a href="perfil.php" class="hover:text-blue-300 transition-colors">Perfil</a>
-        </div>
-    </nav>
+    <?php include 'estaticos/nav.php'; ?>
 </header>
 
 <!-- Main Content -->
