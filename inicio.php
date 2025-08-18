@@ -190,6 +190,7 @@
         <div id="form-message" class="mt-4 text-center"></div>
     </form>
 </main>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
     // --- Mobile Menu Toggle ---
@@ -351,6 +352,13 @@
             const result = await response.json();
 
             if (result.status === 'success') {
+
+                Swal.fire({
+                    title: "Registrado!",
+                    icon: "success",
+                    draggable: true
+                });
+
                 formMessage.innerHTML = `<p class="text-green-600 font-semibold">${result.message}</p>`;
                 form.reset();
                 // Clear previews and reset form state

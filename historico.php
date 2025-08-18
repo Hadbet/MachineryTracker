@@ -37,7 +37,7 @@
         <div class="hidden md:flex items-center space-x-6">
             <a href="inicio.php" class="hover:text-blue-300 transition-colors">Inicio</a>
             <a href="#" class="hover:text-blue-300 transition-colors">Pendientes</a>
-            <a href="#" class="text-blue-300 font-semibold border-b-2 border-blue-300">Histórico</a>
+            <a href="#" class="text-blue-300 font-semibold border-b-2 border-blue-300">Estación</a>
             <a href="#" class="hover:text-blue-300 transition-colors">Perfil</a>
         </div>
     </nav>
