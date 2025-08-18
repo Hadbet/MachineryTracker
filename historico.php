@@ -31,7 +31,7 @@
 <header class="bg-gray-800 text-white shadow-lg">
     <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
         <div class="flex items-center">
-            <img src="https://placehold.co/40x40/ffffff/334155?text=G" alt="Logo de Grammer" class="h-10 w-10 mr-3 rounded-full">
+            <img src="images/logoWhite.png" alt="Logo de Grammer" class="h-10 w-10 mr-3 rounded-full">
             <h1 class="text-xl font-bold">Machinery Tracker</h1>
         </div>
         <div class="hidden md:flex items-center space-x-6">
