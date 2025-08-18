@@ -61,8 +61,6 @@ try {
     $imagenEntradaNombre = handleFileUpload($_FILES['evidencia_entrada'] ?? null, RUTA_ENTRADAS);
     $imagenResguardoNombre = handleFileUpload($_FILES['evidencia_resguardo'] ?? null, RUTA_RESGUARDO);
 
-    echo $imagenEstacionNombre;
-
     // --- 3. INSERCIÓN EN LA BASE DE DATOS ---
     $con = new LocalConector();
     $conex = $con->conectar();
