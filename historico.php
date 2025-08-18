@@ -15,10 +15,14 @@
         .modal { transition: opacity 0.25s ease; }
         .modal-content { transition: transform 0.25s ease; }
         .details-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
-        .detail-item { background-color: #f9fafb; padding: 0.75rem; border-radius: 0.5rem; border: 1px solid #e5e7eb; }
+        .detail-item { background-color: #f9fafb; padding: 0.75rem; border-radius: 0.5rem; border: 1px solid #e5e7eb; transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; }
+        .detail-item:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         .detail-item dt { font-weight: 600; color: #4b5563; }
         .detail-item dd { color: #1f2937; margin-top: 0.25rem; }
-        .detail-image { width: 100%; height: 200px; object-fit: cover; border-radius: 0.5rem; border: 1px solid #e5e7eb; }
+        .detail-image { width: 100%; height: 200px; object-fit: cover; border-radius: 0.5rem; border: 1px solid #e5e7eb; cursor: pointer; transition: transform 0.2s ease-in-out; }
+        .detail-image:hover { transform: scale(1.05); }
+        .image-viewer { position: fixed; inset: 0; background-color: rgba(0,0,0,0.75); z-index: 1001; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+        .image-viewer img { max-width: 90vw; max-height: 90vh; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
     </style>
 </head>
 <body class="bg-gray-100">
@@ -88,6 +92,11 @@
             <!-- Details will be injected here -->
         </div>
     </div>
+</div>
+
+<!-- NEW: Modal for Image Viewer -->
+<div id="imageViewerModal" class="image-viewer hidden" onclick="closeImageViewer()">
+    <img id="fullScreenImage" src="" alt="Vista ampliada">
 </div>
 
 <script>
@@ -168,7 +177,11 @@
         const baseURL = 'dao/evidencias/';
 
         const renderImage = (path, folder) => {
-            return path ? `<img src="${baseURL}${folder}/${path}" alt="Evidencia" class="detail-image">` : '<div class="detail-image flex items-center justify-center bg-gray-200 text-gray-500">No disponible</div>';
+            if (!path) {
+                return '<div class="detail-image flex items-center justify-center bg-gray-200 text-gray-500">No disponible</div>';
+            }
+            const fullPath = `${baseURL}${folder}/${path}`;
+            return `<img src="${fullPath}" alt="Evidencia" class="detail-image" onclick="expandImage('${fullPath}')">`;
         };
 
         detailsContainer.innerHTML = `
@@ -206,30 +219,32 @@
         modal.classList.remove('flex');
     }
 
+    // --- NEW: Image Viewer Logic ---
+    function expandImage(src) {
+        document.getElementById('fullScreenImage').src = src;
+        document.getElementById('imageViewerModal').classList.remove('hidden');
+    }
+
+    function closeImageViewer() {
+        document.getElementById('imageViewerModal').classList.add('hidden');
+    }
+
     // --- Export to CSV Logic ---
     function exportTableToCSV(filename) {
         const table = document.getElementById("resultsTable");
         let csv = [];
-        // Get headers
-        const headers = Array.from(table.querySelectorAll("thead th"))
-            .map(header => header.innerText)
-            .slice(0, -1); // Exclude "Acciones" column
+        const headers = Array.from(table.querySelectorAll("thead th")).map(header => header.innerText).slice(0, -1);
         csv.push(headers.join(','));
-
-        // Get rows from the currently displayed data
         const rows = table.querySelectorAll("tbody tr");
         for (const row of rows) {
-            const cols = Array.from(row.querySelectorAll("td"))
-                .map(cell => `"${cell.innerText.replace(/"/g, '""')}"`) // Escape quotes
-                .slice(0, -1); // Exclude "Acciones" column
+            const cols = Array.from(row.querySelectorAll("td")).map(cell => `"${cell.innerText.replace(/"/g, '""')}"`).slice(0, -1);
             csv.push(cols.join(','));
         }
-
         downloadCSV(csv.join('\n'), filename);
     }
 
     function downloadCSV(csv, filename) {
-        const blob = new Blob(["\uFEFF" + csv], { type: 'text/csv;charset=utf-8;' }); // BOM for Excel
+        const blob = new Blob(["\uFEFF" + csv], { type: 'text/csv;charset=utf-8;' });
         const link = document.createElement("a");
         const url = URL.createObjectURL(blob);
         link.setAttribute("href", url);
