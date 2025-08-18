@@ -135,7 +135,11 @@
                 </div>
                 <div>
                     <label for="edit_rol" class="block text-sm font-medium text-gray-700">Rol</label>
-                    <input type="text" id="edit_rol" name="rol" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus-ring-grammer">
+                    <select id="edit_rol" name="rol" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus-ring-grammer">
+                        <option value="1">Usuario</option>
+                        <option value="2">Admin</option>
+                        <option value="3">Inactivo</option>
+                    </select>
                 </div>
                 <div>
                     <label for="edit_estatus" class="block text-sm font-medium text-gray-700">Estatus</label>
