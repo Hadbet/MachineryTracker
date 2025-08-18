@@ -1,18 +1,10 @@
 <?php
-// validar_login.php
-
-// Inicia una sesión para poder guardar información del usuario si el login es exitoso.
 session_start();
-
-// Incluimos tu archivo de conexión a la base de datos.
 include_once('db/db_Machinery.php');
 
-// --- 1. RECUPERAR DATOS DEL FORMULARIO ---
-// Usamos el operador de fusión de null (??) para evitar errores.
 $nomina = $_POST['nomina'] ?? '';
 $password = $_POST['password'] ?? '';
 
-// Verificación básica de que los campos no están vacíos.
 if (empty($nomina) || empty($password)) {
     // Si faltan datos, enviamos una respuesta de error.
     header('Content-Type: application/json');
@@ -21,7 +13,6 @@ if (empty($nomina) || empty($password)) {
 }
 
 try {
-    // --- 2. CONSULTA A LA BASE DE DATOS ---
     $con = new LocalConector();
     $conex = $con->conectar();
 
