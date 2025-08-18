@@ -1,20 +1,17 @@
 <?php
 include_once('db/db_Machinery.php');
 
-$user = $_POST['user'];
-$area = $_POST['area'];
 $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Encriptamos la contraseña
-$rol = $_POST['rol'];
-$estatus = $_POST['estatus'];
 $nombre = $_POST['nombre'];
 $nomina = $_POST['nomina'];
+$correo = $_POST['correo'];
 
 try {
     $con = new LocalConector();
     $conex=$con->conectar();
 
-    $stmt = $conex->prepare("INSERT INTO `Usuarios`( `User`, `Password`, `Rol`, `Estatus`, `Area`, `Nomina`, `Nombre`) VALUES (?, ?, ?, ?,?,?,?)");
-    $stmt->bind_param("ssssiis", $user, $password, $rol, $estatus,$area,$nomina,$nombre);
+    $stmt = $conex->prepare("INSERT INTO `Usuarios`(`Nombre`, `Nomina`, `Correo`, `Password`, `rol`, `estatus`) VALUES (?,?,?,?,1,1)");
+    $stmt->bind_param("ssss", $nombre, $nomina, $correo, $password);
 
     $stmt->execute();
 

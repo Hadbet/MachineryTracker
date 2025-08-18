@@ -36,9 +36,9 @@
         </div>
         <div class="hidden md:flex items-center space-x-6">
             <a href="inicio.php" class="hover:text-blue-300 transition-colors">Inicio</a>
-            <a href="#" class="hover:text-blue-300 transition-colors">Pendientes</a>
-            <a href="#" class="text-blue-300 font-semibold border-b-2 border-blue-300">Estación</a>
-            <a href="#" class="hover:text-blue-300 transition-colors">Perfil</a>
+            <a href="usuario.php" class="hover:text-blue-300 transition-colors">Usuarios</a>
+            <a href="historico.php" class="text-blue-300 font-semibold border-b-2 border-blue-300">Estaciones</a>
+            <a href="perfil.php" class="hover:text-blue-300 transition-colors">Perfil</a>
         </div>
     </nav>
 </header>
@@ -80,6 +80,14 @@
         </div>
     </div>
 </main>
+<footer class="bg-gray-800 text-gray-400 text-sm text-center py-4 mt-8">
+    <div class="container mx-auto">
+        <p>&copy; Grammer Automotive Puebla S.A de C.V</p>
+        <p class="mt-1">
+            Administrador: Ingenieria Liliana Sistos | Desarrollo por: Hadbet Ayari
+        </p>
+    </div>
+</footer>
 
 <!-- The Modal for Details -->
 <div id="detailsModal" class="modal fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4">
