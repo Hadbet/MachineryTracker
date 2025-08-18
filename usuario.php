@@ -239,8 +239,8 @@
         document.getElementById('edit_nombre').value = user.Nombre;
         document.getElementById('edit_nomina').value = user.Nomina;
         document.getElementById('edit_correo').value = user.Correo;
-        document.getElementById('edit_rol').value = user.Rol;
-        document.getElementById('edit_estatus').value = user.Estatus;
+        document.getElementById('edit_rol').value = user.rol;
+        document.getElementById('edit_estatus').value = user.estatus;
         document.getElementById('edit_password').value = ""; // Clear password field
         editModal.classList.remove('hidden');
         editModal.classList.add('flex');
