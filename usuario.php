@@ -258,7 +258,7 @@
     editUserForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const formData = new FormData(editUserForm);
-        const url = 'https://grammermx.com/Ingenieria/MachineryTracker/dao/daoCrearUsuario.php'; // URL de tu script PHP
+        const url = 'https://grammermx.com/Ingenieria/MachineryTracker/dao/daoActualizarUsuario.php'; // URL de tu script PHP
 
         try {
             const response = await fetch(url, { method: 'POST', body: formData });
