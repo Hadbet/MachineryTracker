@@ -1,10 +1,10 @@
 <?php
 include_once('db/db_Machinery.php');
 
-define('RUTA_ESTACION', 'dao/evidencias/estacion/');
-define('RUTA_SALIDAS', 'dao/evidencias/salidas/');
-define('RUTA_ENTRADAS', 'dao/evidencias/entradas/');
-define('RUTA_RESGUARDO', 'dao/evidencias/resguardo/');
+define('RUTA_ESTACION', 'evidencias/estacion/');
+define('RUTA_SALIDAS', 'evidencias/salidas/');
+define('RUTA_ENTRADAS', 'evidencias/entradas/');
+define('RUTA_RESGUARDO', 'evidencias/resguardo/');
 
 function handleFileUpload($fileData, $targetDirectory) {
     // --- VERIFICACIÓN DE ERRORES MEJORADA ---
