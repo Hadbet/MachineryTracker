@@ -57,6 +57,7 @@
 <!-- The Modal for Editing -->
 <div id="editModal" class="modal fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4">
     <div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-4xl max-h-[90vh] overflow-y-auto transform scale-95">
+        <!-- FORMULARIO CORREGIDO CON enctype -->
         <form id="editForm" enctype="multipart/form-data">
             <div class="p-6">
                 <div class="flex justify-between items-center border-b pb-3">
