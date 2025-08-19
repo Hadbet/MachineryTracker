@@ -42,7 +42,7 @@ try {
 
     $stmt->execute();
 
-    echo $sql;
+    echo "UPDATE `Usuarios` SET `Nombre` = $nombre, `Correo` = $correo, `rol` = $rol, `estatus` = $estatus  WHERE `IdUsuario` = $userId";
 
     header('Content-Type: application/json');
     if ($stmt->affected_rows > 0) {
