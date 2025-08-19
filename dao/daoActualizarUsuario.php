@@ -42,6 +42,8 @@ try {
 
     $stmt->execute();
 
+    echo $sql;
+
     header('Content-Type: application/json');
     if ($stmt->affected_rows > 0) {
         echo json_encode(["success" => true, "message" => "Usuario actualizado exitosamente."]);
