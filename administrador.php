@@ -278,7 +278,7 @@
     document.getElementById('editForm').addEventListener('submit', async (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
-        const url = 'https://grammermx.com/Ingenieria/MachineryTracker/dao/daoActualiziarMaquinaria.php';
+        const url = 'https://grammermx.com/Ingenieria/MachineryTracker/dao/daoActualziarMaquinaria.php';
 
         try {
             const response = await fetch(url, { method: 'POST', body: formData });
