@@ -2,11 +2,11 @@
 
 $currentPage = basename($_SERVER['PHP_SELF']);
 
+session_start();
+
 if ($_SESSION["user_id"] == "" && $_SESSION["user_id"] == null) {
     echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=index.html'>";
     session_destroy();
-} else {
-    session_start();
 }
 
 $usuario = $_SESSION['user_id'];
