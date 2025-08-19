@@ -26,10 +26,14 @@
 
         <!-- Filters -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-6">
-            <input type="text" id="filterProyecto" placeholder="Filtrar por Proyecto..." class="px-3 py-2 border border-gray-300 rounded-md">
-            <input type="text" id="filterEstacion" placeholder="Filtrar por Estación..." class="px-3 py-2 border border-gray-300 rounded-md">
-            <input type="text" id="filterResponsable" placeholder="Filtrar por Responsable..." class="px-3 py-2 border border-gray-300 rounded-md">
-            <input type="text" id="filterEmpresa" placeholder="Filtrar por Empresa..." class="px-3 py-2 border border-gray-300 rounded-md">
+            <input type="text" id="filterProyecto" placeholder="Filtrar por Proyecto..."
+                   class="px-3 py-2 border border-gray-300 rounded-md">
+            <input type="text" id="filterEstacion" placeholder="Filtrar por Estación..."
+                   class="px-3 py-2 border border-gray-300 rounded-md">
+            <input type="text" id="filterResponsable" placeholder="Filtrar por Responsable..."
+                   class="px-3 py-2 border border-gray-300 rounded-md">
+            <input type="text" id="filterEmpresa" placeholder="Filtrar por Empresa..."
+                   class="px-3 py-2 border border-gray-300 rounded-md">
             <input type="date" id="filterFecha" class="px-3 py-2 border border-gray-300 rounded-md">
         </div>
 
@@ -53,6 +57,7 @@
         </div>
     </div>
 </main>
+<?php include 'estaticos/piePagina.php'; ?>
 
 <!-- The Modal for Editing -->
 <div id="editModal" class="modal fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4">
@@ -62,7 +67,9 @@
             <div class="p-6">
                 <div class="flex justify-between items-center border-b pb-3">
                     <h2 class="text-2xl font-bold text-gray-800">Editar Registro</h2>
-                    <button type="button" class="text-gray-500 hover:text-gray-800 text-3xl" onclick="closeModal()">&times;</button>
+                    <button type="button" class="text-gray-500 hover:text-gray-800 text-3xl" onclick="closeModal()">
+                        &times;
+                    </button>
                 </div>
 
                 <input type="hidden" id="edit_IdMaquinaria" name="IdMaquinaria">
@@ -73,10 +80,14 @@
                     <div>
                         <h3 class="text-lg font-semibold text-gray-700 mb-4">Datos de la Estación</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <input name="proyecto" id="edit_proyecto" placeholder="Proyecto" class="px-3 py-2 border rounded">
-                            <input name="nombre_estacion" id="edit_nombre_estacion" placeholder="Nombre Estación" class="px-3 py-2 border rounded">
-                            <input name="responsable" id="edit_responsable" placeholder="Responsable" class="px-3 py-2 border rounded">
-                            <input name="activo_fijo" id="edit_activo_fijo" placeholder="Activo Fijo (Opcional)" class="px-3 py-2 border rounded">
+                            <input name="proyecto" id="edit_proyecto" placeholder="Proyecto"
+                                   class="px-3 py-2 border rounded">
+                            <input name="nombre_estacion" id="edit_nombre_estacion" placeholder="Nombre Estación"
+                                   class="px-3 py-2 border rounded">
+                            <input name="responsable" id="edit_responsable" placeholder="Responsable"
+                                   class="px-3 py-2 border rounded">
+                            <input name="activo_fijo" id="edit_activo_fijo" placeholder="Activo Fijo (Opcional)"
+                                   class="px-3 py-2 border rounded">
                             <select name="disposicion" id="edit_disposicion" class="px-3 py-2 border rounded">
                                 <option value="en_uso">En uso</option>
                                 <option value="resguardo">Resguardo</option>
@@ -90,40 +101,48 @@
                     <div>
                         <h3 class="text-lg font-semibold text-gray-700 mb-4">Contacto Externo</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <input name="contacto_nombre" id="edit_contacto_nombre" placeholder="Nombre Contacto" class="px-3 py-2 border rounded">
+                            <input name="contacto_nombre" id="edit_contacto_nombre" placeholder="Nombre Contacto"
+                                   class="px-3 py-2 border rounded">
                             <select name="contacto_empresa" id="edit_contacto_empresa" class="px-3 py-2 border rounded">
                                 <option value="GXIN">GXIN</option>
                                 <option value="QRO-3330">QRO-3330</option>
                                 <option value="TET-3310">TET-3310</option>
                             </select>
-                            <input name="contacto_telefono" id="edit_contacto_telefono" placeholder="Teléfono" class="px-3 py-2 border rounded">
-                            <textarea name="contacto_direccion" id="edit_contacto_direccion" placeholder="Dirección" rows="2" class="md:col-span-2 px-3 py-2 border rounded"></textarea>
+                            <input name="contacto_telefono" id="edit_contacto_telefono" placeholder="Teléfono"
+                                   class="px-3 py-2 border rounded">
+                            <textarea name="contacto_direccion" id="edit_contacto_direccion" placeholder="Dirección"
+                                      rows="2" class="md:col-span-2 px-3 py-2 border rounded"></textarea>
                         </div>
                     </div>
 
                     <!-- Evidences -->
                     <div>
-                        <h3 class="text-lg font-semibold text-gray-700 mb-4">Evidencias Fotográficas (subir para reemplazar)</h3>
+                        <h3 class="text-lg font-semibold text-gray-700 mb-4">Evidencias Fotográficas (subir para
+                            reemplazar)</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                             <div>
                                 <label class="font-medium text-sm">Imagen Estación</label>
                                 <div id="preview_edit_imagen_estacion" class="image-preview mt-1"></div>
-                                <input type="file" id="edit_input_imagen_estacion" name="imagen_estacion" class="mt-2 text-xs">
+                                <input type="file" id="edit_input_imagen_estacion" name="imagen_estacion"
+                                       class="mt-2 text-xs">
                             </div>
                             <div id="container_edit_salida">
                                 <label class="font-medium text-sm">Evidencia Salida</label>
                                 <div id="preview_edit_evidencia_salida" class="image-preview mt-1"></div>
-                                <input type="file" id="edit_input_evidencia_salida" name="evidencia_salida" class="mt-2 text-xs">
+                                <input type="file" id="edit_input_evidencia_salida" name="evidencia_salida"
+                                       class="mt-2 text-xs">
                             </div>
                             <div id="container_edit_entrada">
                                 <label class="font-medium text-sm">Evidencia Entrada</label>
                                 <div id="preview_edit_evidencia_entrada" class="image-preview mt-1"></div>
-                                <input type="file" id="edit_input_evidencia_entrada" name="evidencia_entrada" class="mt-2 text-xs">
+                                <input type="file" id="edit_input_evidencia_entrada" name="evidencia_entrada"
+                                       class="mt-2 text-xs">
                             </div>
                             <div id="container_edit_resguardo">
                                 <label class="font-medium text-sm">Evidencia Resguardo</label>
                                 <div id="preview_edit_evidencia_resguardo" class="image-preview mt-1"></div>
-                                <input type="file" id="edit_input_evidencia_resguardo" name="evidencia_resguardo" class="mt-2 text-xs">
+                                <input type="file" id="edit_input_evidencia_resguardo" name="evidencia_resguardo"
+                                       class="mt-2 text-xs">
                             </div>
                         </div>
                     </div>
@@ -131,181 +150,15 @@
             </div>
             <!-- Modal Footer -->
             <div class="bg-gray-50 px-6 py-3 flex justify-end">
-                <button type="submit" class="px-4 py-2 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700">Guardar Cambios</button>
+                <button type="submit"
+                        class="px-4 py-2 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700">Guardar
+                    Cambios
+                </button>
             </div>
         </form>
     </div>
 </div>
 
-
-<script>
-    let allRecords = [];
-    const baseURL = 'dao/evidencias/'; // Base URL for images
-
-    // --- Load and Display Data ---
-    async function loadResults() {
-        const url = 'https://grammermx.com/Ingenieria/MachineryTracker/dao/daoConsultaMaquinaria.php';
-        try {
-            const response = await fetch(url);
-            const result = await response.json();
-            allRecords = result.data;
-            displayRecords(allRecords);
-        } catch (error) {
-            console.error('Error fetching data:', error);
-        }
-    }
-
-    function displayRecords(records) {
-        const tableBody = document.querySelector("#resultsTable tbody");
-        tableBody.innerHTML = "";
-        records.forEach(record => {
-            const row = document.createElement('tr');
-            row.className = "bg-white border-b hover:bg-gray-50";
-            row.innerHTML = `
-                <td class="px-6 py-4">${record.Proyecto}</td>
-                <td class="px-6 py-4">${record.NombreEstacion}</td>
-                <td class="px-6 py-4">${record.Responsable}</td>
-                <td class="px-6 py-4">${record.Disposicion}</td>
-                <td class="px-6 py-4">${new Date(record.Fecha).toLocaleDateString()}</td>
-                <td class="px-6 py-4"><button class="px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600">Editar</button></td>
-            `;
-            row.querySelector('button').addEventListener('click', () => openEditModal(record));
-            tableBody.appendChild(row);
-        });
-    }
-
-    // --- Filtering Logic ---
-    function applyFilters() {
-        const filters = {
-            proyecto: document.getElementById('filterProyecto').value.toLowerCase(),
-            estacion: document.getElementById('filterEstacion').value.toLowerCase(),
-            responsable: document.getElementById('filterResponsable').value.toLowerCase(),
-            empresa: document.getElementById('filterEmpresa').value.toLowerCase(),
-            fecha: document.getElementById('filterFecha').value
-        };
-        const filteredRecords = allRecords.filter(r =>
-            r.Proyecto.toLowerCase().includes(filters.proyecto) &&
-            r.NombreEstacion.toLowerCase().includes(filters.estacion) &&
-            r.Responsable.toLowerCase().includes(filters.responsable) &&
-            r.Empresa.toLowerCase().includes(filters.empresa) &&
-            (filters.fecha === '' || r.Fecha.startsWith(filters.fecha))
-        );
-        displayRecords(filteredRecords);
-    }
-    ['filterProyecto', 'filterEstacion', 'filterResponsable', 'filterEmpresa', 'filterFecha'].forEach(id => {
-        document.getElementById(id).addEventListener('input', applyFilters);
-    });
-
-    // --- Edit Modal Logic ---
-    function openEditModal(record) {
-        const modal = document.getElementById('editModal');
-        const form = document.getElementById('editForm');
-        form.reset(); // Reset form fields and file inputs
-
-        // Populate form
-        document.getElementById('edit_IdMaquinaria').value = record.IdMaquinaria;
-        document.getElementById('edit_proyecto').value = record.Proyecto;
-        document.getElementById('edit_nombre_estacion').value = record.NombreEstacion;
-        document.getElementById('edit_responsable').value = record.Responsable;
-        document.getElementById('edit_activo_fijo').value = record.ActivoFijo;
-        document.getElementById('edit_disposicion').value = record.Disposicion;
-        document.getElementById('edit_contacto_nombre').value = record.NombreExterno;
-        document.getElementById('edit_contacto_empresa').value = record.Empresa;
-        document.getElementById('edit_contacto_telefono').value = record.NumeroExterno;
-        document.getElementById('edit_contacto_direccion').value = record.DireccionExterno;
-
-        // Populate image previews
-        const setPreview = (id, folder, filename) => {
-            const el = document.getElementById(id);
-            if (filename) {
-                el.innerHTML = `<img src="${baseURL}${folder}/${filename}" alt="Vista previa">`;
-            } else {
-                el.innerHTML = '<span>No hay imagen</span>';
-            }
-        };
-        setPreview('preview_edit_imagen_estacion', 'estacion', record.ImagenEstacion);
-        setPreview('preview_edit_evidencia_salida', 'salidas', record.ImagenSalida);
-        setPreview('preview_edit_evidencia_entrada', 'entradas', record.ImagenEntrada);
-        setPreview('preview_edit_evidencia_resguardo', 'resguardo', record.ImagenEvidenciaResguardo);
-
-        handleDisposicionChangeInModal();
-        document.getElementById('edit_disposicion').addEventListener('change', handleDisposicionChangeInModal);
-
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-    }
-
-    function closeModal() {
-        document.getElementById('editModal').classList.add('hidden');
-        document.getElementById('editModal').classList.remove('flex');
-    }
-
-    function handleDisposicionChangeInModal() {
-        const value = document.getElementById('edit_disposicion').value;
-        const containers = {
-            salida: document.getElementById('container_edit_salida'),
-            entrada: document.getElementById('container_edit_entrada'),
-            resguardo: document.getElementById('container_edit_resguardo')
-        };
-        Object.values(containers).forEach(c => c.style.display = 'none');
-        if (value === 'resguardo' || value === 'modificacion') {
-            Object.values(containers).forEach(c => c.style.display = 'block');
-        } else if (value === 'scrap') {
-            containers.salida.style.display = 'block';
-        }
-    }
-
-    // --- Function to handle preview updates in the modal ---
-    function setupModalImagePreviews() {
-        const previews = [
-            { inputId: 'edit_input_imagen_estacion', previewId: 'preview_edit_imagen_estacion' },
-            { inputId: 'edit_input_evidencia_salida', previewId: 'preview_edit_evidencia_salida' },
-            { inputId: 'edit_input_evidencia_entrada', previewId: 'preview_edit_evidencia_entrada' },
-            { inputId: 'edit_input_evidencia_resguardo', previewId: 'preview_edit_evidencia_resguardo' }
-        ];
-
-        previews.forEach(item => {
-            const input = document.getElementById(item.inputId);
-            const preview = document.getElementById(item.previewId);
-            input.addEventListener('change', (event) => {
-                const file = event.target.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = (e) => {
-                        preview.innerHTML = `<img src="${e.target.result}" alt="Nueva vista previa">`;
-                    };
-                    reader.readAsDataURL(file);
-                }
-            });
-        });
-    }
-
-    // --- Form Submission Logic ---
-    document.getElementById('editForm').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const formData = new FormData(e.target);
-        const url = 'https://grammermx.com/Ingenieria/MachineryTracker/dao/daoActualziarMaquinaria.php';
-
-        try {
-            const response = await fetch(url, { method: 'POST', body: formData });
-            const result = await response.json();
-            if (result.success) {
-                alert('Registro actualizado exitosamente.');
-                closeModal();
-                loadResults(); // Refresh table
-            } else {
-                throw new Error(result.message);
-            }
-        } catch (error) {
-            alert(`Error al actualizar: ${error.message}`);
-        }
-    });
-
-    document.addEventListener('DOMContentLoaded', () => {
-        loadResults();
-        setupModalImagePreviews(); // Call the function to set up listeners
-    });
-</script>
-
+<script src="js/administrador.js"></script>
 </body>
 </html>

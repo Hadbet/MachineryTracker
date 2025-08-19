@@ -30,19 +30,26 @@
                 <h3 class="text-lg font-semibold text-gray-700 mb-4">Cambiar Contraseña</h3>
                 <div class="space-y-4">
                     <div>
-                        <label for="current_password" class="block text-sm font-medium text-gray-700">Contraseña Actual</label>
-                        <input type="password" id="current_password" name="current_password" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus-ring-grammer">
+                        <label for="current_password" class="block text-sm font-medium text-gray-700">Contraseña
+                            Actual</label>
+                        <input type="password" id="current_password" name="current_password" required
+                               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus-ring-grammer">
                     </div>
                     <div>
-                        <label for="new_password" class="block text-sm font-medium text-gray-700">Nueva Contraseña</label>
-                        <input type="password" id="new_password" name="new_password" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus-ring-grammer">
+                        <label for="new_password" class="block text-sm font-medium text-gray-700">Nueva
+                            Contraseña</label>
+                        <input type="password" id="new_password" name="new_password" required
+                               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus-ring-grammer">
                     </div>
                     <div>
-                        <label for="confirm_password" class="block text-sm font-medium text-gray-700">Confirmar Nueva Contraseña</label>
-                        <input type="password" id="confirm_password" name="confirm_password" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus-ring-grammer">
+                        <label for="confirm_password" class="block text-sm font-medium text-gray-700">Confirmar Nueva
+                            Contraseña</label>
+                        <input type="password" id="confirm_password" name="confirm_password" required
+                               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus-ring-grammer">
                     </div>
                 </div>
-                <button type="submit" id="submit-button" class="mt-6 w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                <button type="submit" id="submit-button"
+                        class="mt-6 w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                     Actualizar Contraseña
                 </button>
                 <div id="form-message" class="mt-4 text-center"></div>
@@ -51,63 +58,8 @@
     </div>
 </main>
 
-<!-- Footer -->
-<footer class="bg-gray-800 text-gray-400 text-sm text-center py-4 mt-8">
-    <div class="container mx-auto">
-        <p>&copy; Grammer Automotive Puebla S.A de C.V</p>
-        <p class="mt-1">
-            Administrador: Ingenieria Liliana Sistos | Desarrollo por: Hadbet Ayari
-        </p>
-    </div>
-</footer>
-
-<script>
-    const changePasswordForm = document.getElementById('changePasswordForm');
-    const submitButton = document.getElementById('submit-button');
-    const formMessage = document.getElementById('form-message');
-
-    changePasswordForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        const newPassword = document.getElementById('new_password').value;
-        const confirmPassword = document.getElementById('confirm_password').value;
-
-        // Client-side validation
-        if (newPassword !== confirmPassword) {
-            formMessage.innerHTML = '<p class="text-red-600">Las nuevas contraseñas no coinciden.</p>';
-            return;
-        }
-
-        formMessage.textContent = '';
-        submitButton.disabled = true;
-        submitButton.textContent = 'Actualizando...';
-
-        const formData = new FormData(changePasswordForm);
-        // Replace with the URL of your PHP script for updating the password
-        const url = 'https://grammermx.com/Ingenieria/MachineryTracker/dao/daoActualizarContrasena.php';
-
-        try {
-            const response = await fetch(url, {
-                method: 'POST',
-                body: formData
-            });
-
-            const result = await response.json();
-
-            if (result.success) {
-                formMessage.innerHTML = `<p class="text-green-600">${result.message}</p>`;
-                changePasswordForm.reset();
-            } else {
-                throw new Error(result.message);
-            }
-        } catch (error) {
-            formMessage.innerHTML = `<p class="text-red-600">Error: ${error.message}</p>`;
-        } finally {
-            submitButton.disabled = false;
-            submitButton.textContent = 'Actualizar Contraseña';
-        }
-    });
-</script>
+<?php include 'estaticos/piePagina.php'; ?>
+<script src="js/perfil.js"></script>
 
 </body>
 </html>
