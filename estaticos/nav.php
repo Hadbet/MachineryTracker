@@ -2,7 +2,13 @@
 
 $currentPage = basename($_SERVER['PHP_SELF']);
 
-session_start();
+if ($_SESSION["user_id"] == "" && $_SESSION["user_id"] == null) {
+    echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=index.html'>";
+    session_destroy();
+} else {
+    session_start();
+}
+
 $usuario = $_SESSION['user_id'];
 $nombre = $_SESSION['user_nombre'];
 $rol = $_SESSION['user_rol'];
@@ -13,7 +19,6 @@ if ($rol === 1 && $currentPage === 'usuario.php'){
 }
 
 ?>
-
 <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
     <!-- Logo and Portal Title -->
     <div class="flex items-center">
