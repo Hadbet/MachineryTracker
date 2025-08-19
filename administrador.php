@@ -108,22 +108,22 @@
                             <div>
                                 <label class="font-medium text-sm">Imagen Estación</label>
                                 <div id="preview_edit_imagen_estacion" class="image-preview mt-1"></div>
-                                <input type="file" name="imagen_estacion" class="mt-2 text-xs">
+                                <input type="file" id="edit_input_imagen_estacion" name="imagen_estacion" class="mt-2 text-xs">
                             </div>
                             <div id="container_edit_salida">
                                 <label class="font-medium text-sm">Evidencia Salida</label>
                                 <div id="preview_edit_evidencia_salida" class="image-preview mt-1"></div>
-                                <input type="file" name="evidencia_salida" class="mt-2 text-xs">
+                                <input type="file" id="edit_input_evidencia_salida" name="evidencia_salida" class="mt-2 text-xs">
                             </div>
                             <div id="container_edit_entrada">
                                 <label class="font-medium text-sm">Evidencia Entrada</label>
                                 <div id="preview_edit_evidencia_entrada" class="image-preview mt-1"></div>
-                                <input type="file" name="evidencia_entrada" class="mt-2 text-xs">
+                                <input type="file" id="edit_input_evidencia_entrada" name="evidencia_entrada" class="mt-2 text-xs">
                             </div>
                             <div id="container_edit_resguardo">
                                 <label class="font-medium text-sm">Evidencia Resguardo</label>
                                 <div id="preview_edit_evidencia_resguardo" class="image-preview mt-1"></div>
-                                <input type="file" name="evidencia_resguardo" class="mt-2 text-xs">
+                                <input type="file" id="edit_input_evidencia_resguardo" name="evidencia_resguardo" class="mt-2 text-xs">
                             </div>
                         </div>
                     </div>
@@ -199,6 +199,9 @@
     // --- Edit Modal Logic ---
     function openEditModal(record) {
         const modal = document.getElementById('editModal');
+        const form = document.getElementById('editForm');
+        form.reset(); // Reset form fields and file inputs
+
         // Populate form
         document.getElementById('edit_IdMaquinaria').value = record.IdMaquinaria;
         document.getElementById('edit_proyecto').value = record.Proyecto;
@@ -225,7 +228,6 @@
         setPreview('preview_edit_evidencia_entrada', 'entradas', record.ImagenEntrada);
         setPreview('preview_edit_evidencia_resguardo', 'resguardo', record.ImagenEvidenciaResguardo);
 
-        // Handle dynamic fields based on disposition
         handleDisposicionChangeInModal();
         document.getElementById('edit_disposicion').addEventListener('change', handleDisposicionChangeInModal);
 
@@ -253,6 +255,31 @@
         }
     }
 
+    // --- NEW: Function to handle preview updates in the modal ---
+    function setupModalImagePreviews() {
+        const previews = [
+            { inputId: 'edit_input_imagen_estacion', previewId: 'preview_edit_imagen_estacion' },
+            { inputId: 'edit_input_evidencia_salida', previewId: 'preview_edit_evidencia_salida' },
+            { inputId: 'edit_input_evidencia_entrada', previewId: 'preview_edit_evidencia_entrada' },
+            { inputId: 'edit_input_evidencia_resguardo', previewId: 'preview_edit_evidencia_resguardo' }
+        ];
+
+        previews.forEach(item => {
+            const input = document.getElementById(item.inputId);
+            const preview = document.getElementById(item.previewId);
+            input.addEventListener('change', (event) => {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        preview.innerHTML = `<img src="${e.target.result}" alt="Nueva vista previa">`;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
+    }
+
     // --- Form Submission Logic ---
     document.getElementById('editForm').addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -274,7 +301,10 @@
         }
     });
 
-    document.addEventListener('DOMContentLoaded', loadResults);
+    document.addEventListener('DOMContentLoaded', () => {
+        loadResults();
+        setupModalImagePreviews(); // Call the new function to set up listeners
+    });
 </script>
 
 </body>
