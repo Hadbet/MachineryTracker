@@ -23,6 +23,11 @@
         .detail-image:hover { transform: scale(1.05); }
         .image-viewer { position: fixed; inset: 0; background-color: rgba(0,0,0,0.75); z-index: 1001; display: flex; align-items: center; justify-content: center; cursor: pointer; }
         .image-viewer img { max-width: 90vw; max-height: 90vh; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .active-link {
+            color: #60a5fa; /* Un azul más brillante para destacar */
+            font-weight: 600; /* Semibold */
+            border-bottom: 2px solid #60a5fa;
+        }
     </style>
 </head>
 <body class="bg-gray-100">

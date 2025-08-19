@@ -15,6 +15,11 @@
         .focus-ring-grammer:focus { box-shadow: 0 0 0 2px #3b82f6; }
         .modal { transition: opacity 0.25s ease; }
         .modal-content { transition: transform 0.25s ease; }
+        .active-link {
+            color: #60a5fa; /* Un azul más brillante para destacar */
+            font-weight: 600; /* Semibold */
+            border-bottom: 2px solid #60a5fa;
+        }
     </style>
 </head>
 <body class="bg-gray-100 flex flex-col min-h-screen">
@@ -111,7 +116,7 @@
                     <select id="edit_rol" name="rol" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus-ring-grammer">
                         <option value="1">Usuario</option>
                         <option value="2">Admin</option>
-                        <option value="3">Inactivo</option>
+                        <option value="0">Inactivo</option>
                     </select>
                 </div>
                 <div>

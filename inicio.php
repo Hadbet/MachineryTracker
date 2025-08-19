@@ -16,6 +16,11 @@
             font-family: 'Inter', sans-serif;
             background-color: #f0f4f8; /* Light blue-gray background */
         }
+        .active-link {
+            color: #60a5fa; /* Un azul más brillante para destacar */
+            font-weight: 600; /* Semibold */
+            border-bottom: 2px solid #60a5fa;
+        }
         /* Custom focus ring color */
         .focus-ring-grammer:focus {
             --tw-ring-opacity: 1;

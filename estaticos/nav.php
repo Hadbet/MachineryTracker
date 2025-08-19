@@ -1,3 +1,8 @@
+<?php
+// Obtiene el nombre del archivo actual (ej. "inicio.php", "usuario.php")
+$currentPage = basename($_SERVER['PHP_SELF']);
+?>
+
 <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
     <!-- Logo and Portal Title -->
     <div class="flex items-center">
@@ -7,10 +12,10 @@
 
     <!-- Desktop Menu -->
     <div class="hidden md:flex items-center space-x-6">
-        <a href="inicio.php" class="hover:text-blue-300 transition-colors">Inicio</a>
-        <a href="usuario.php" class="hover:text-blue-300 transition-colors">Usuarios</a>
-        <a href="historico.php" class="hover:text-blue-300 transition-colors">Estaciones</a>
-        <a href="perfil.php" class="hover:text-blue-300 transition-colors">Perfil</a>
+        <a href="inicio.php" class="<?php echo ($currentPage == 'inicio.php') ? 'active-link' : 'hover:text-blue-300'; ?> transition-colors">Inicio</a>
+        <a href="usuario.php" class="<?php echo ($currentPage == 'usuario.php') ? 'active-link' : 'hover:text-blue-300'; ?> transition-colors">Usuarios</a>
+        <a href="historico.php" class="<?php echo ($currentPage == 'historico.php') ? 'active-link' : 'hover:text-blue-300'; ?> transition-colors">Estaciones</a>
+        <a href="perfil.php" class="<?php echo ($currentPage == 'perfil.php') ? 'active-link' : 'hover:text-blue-300'; ?> transition-colors">Perfil</a>
     </div>
 
     <!-- Mobile Menu Button -->
@@ -24,8 +29,8 @@
 </nav>
 <!-- Mobile Menu -->
 <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-    <a href="#" class="block py-2 hover:text-blue-300">Inicio</a>
-    <a href="#" class="block py-2 hover:text-blue-300">Usuarios</a>
-    <a href="#" class="block py-2 hover:text-blue-300">Estaciones</a>
-    <a href="#" class="block py-2 hover:text-blue-300">Perfil</a>
+    <a href="inicio.php" class="block py-2 <?php echo ($currentPage == 'inicio.php') ? 'text-blue-300 font-bold' : 'hover:text-blue-300'; ?>">Inicio</a>
+    <a href="usuario.php" class="block py-2 <?php echo ($currentPage == 'usuario.php') ? 'text-blue-300 font-bold' : 'hover:text-blue-300'; ?>">Usuarios</a>
+    <a href="historico.php" class="block py-2 <?php echo ($currentPage == 'historico.php') ? 'text-blue-300 font-bold' : 'hover:text-blue-300'; ?>">Estaciones</a>
+    <a href="perfil.php" class="block py-2 <?php echo ($currentPage == 'perfil.php') ? 'text-blue-300 font-bold' : 'hover:text-blue-300'; ?>">Perfil</a>
 </div>
