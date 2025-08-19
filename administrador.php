@@ -255,7 +255,7 @@
         }
     }
 
-    // --- NEW: Function to handle preview updates in the modal ---
+    // --- Function to handle preview updates in the modal ---
     function setupModalImagePreviews() {
         const previews = [
             { inputId: 'edit_input_imagen_estacion', previewId: 'preview_edit_imagen_estacion' },
@@ -303,7 +303,7 @@
 
     document.addEventListener('DOMContentLoaded', () => {
         loadResults();
-        setupModalImagePreviews(); // Call the new function to set up listeners
+        setupModalImagePreviews(); // Call the function to set up listeners
     });
 </script>
 
