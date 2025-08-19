@@ -28,6 +28,7 @@ if ($rol === 1 && $currentPage === 'usuario.php'){
         if ($rol === 2){
             ?>
             <a href="usuario.php" class="<?php echo ($currentPage == 'usuario.php') ? 'active-link' : 'hover:text-blue-300'; ?> transition-colors">Usuarios</a>
+            <a href="administrador.php" class="<?php echo ($currentPage == 'administrador.php') ? 'active-link' : 'hover:text-blue-300'; ?> transition-colors">Edición</a>
         <?php } ?>
         <a href="historico.php" class="<?php echo ($currentPage == 'historico.php') ? 'active-link' : 'hover:text-blue-300'; ?> transition-colors">Estaciones</a>
         <a href="perfil.php" class="<?php echo ($currentPage == 'perfil.php') ? 'active-link' : 'hover:text-blue-300'; ?> transition-colors">Perfil</a>
@@ -50,6 +51,7 @@ if ($rol === 1 && $currentPage === 'usuario.php'){
     if ($rol === 2){
         ?>
         <a href="usuario.php" class="block py-2 <?php echo ($currentPage == 'usuario.php') ? 'text-blue-300 font-bold' : 'hover:text-blue-300'; ?>">Usuarios</a>
+        <a href="administrador.php" class="block py-2 <?php echo ($currentPage == 'administrador.php') ? 'text-blue-300 font-bold' : 'hover:text-blue-300'; ?>">Edición</a>
         <?php
     }
     ?>
