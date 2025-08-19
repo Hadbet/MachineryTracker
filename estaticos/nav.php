@@ -44,6 +44,7 @@ if ($rol === 1 && $currentPage === 'usuario.php'){
         </button>
     </div>
 </nav>
+
 <!-- Mobile Menu -->
 <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
     <a href="inicio.php" class="block py-2 <?php echo ($currentPage == 'inicio.php') ? 'text-blue-300 font-bold' : 'hover:text-blue-300'; ?>">Inicio</a>
