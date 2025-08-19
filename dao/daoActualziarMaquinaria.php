@@ -6,25 +6,30 @@ define('RUTA_SALIDAS', 'dao/evidencias/salidas/');
 define('RUTA_ENTRADAS', 'dao/evidencias/entradas/');
 define('RUTA_RESGUARDO', 'dao/evidencias/resguardo/');
 
-/**
- * Función de ayuda para manejar la subida de archivos de imagen.
- * @param array $fileData Datos del archivo provenientes de $_FILES.
- * @param string $targetDirectory La carpeta de destino para guardar la imagen.
- * @return string|null El nombre del archivo guardado o null si no hay archivo o hay un error.
- */
 function handleFileUpload($fileData, $targetDirectory) {
-    if (isset($fileData) && $fileData['error'] === UPLOAD_ERR_OK) {
-        $fileTmpPath = $fileData['tmp_name'];
-        $fileName = basename($fileData['name']);
-        $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
-        $newFileName = uniqid('', true) . '.' . $fileExtension;
-        $dest_path = $targetDirectory . $newFileName;
-
-        if (move_uploaded_file($fileTmpPath, $dest_path)) {
-            return $newFileName;
-        }
+    // --- VERIFICACIÓN DE ERRORES MEJORADA ---
+    if (!isset($fileData) || !is_uploaded_file($fileData['tmp_name'])) {
+        // No se subió un archivo para este campo, lo cual es normal.
+        return null;
     }
-    return null;
+
+    if ($fileData['error'] !== UPLOAD_ERR_OK) {
+        // Si hay un error, detenemos el proceso y lanzamos una excepción clara.
+        throw new Exception("Error al subir el archivo '{$fileData['name']}'. Código de error: {$fileData['error']}");
+    }
+
+    $fileTmpPath = $fileData['tmp_name'];
+    $fileName = basename($fileData['name']);
+    $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+    $newFileName = uniqid('', true) . '.' . $fileExtension;
+    $dest_path = $targetDirectory . $newFileName;
+
+    if (move_uploaded_file($fileTmpPath, $dest_path)) {
+        return $newFileName;
+    } else {
+        // Si falla al mover, es un problema de permisos.
+        throw new Exception("No se pudo mover el archivo a la carpeta de destino. Revisa los permisos.");
+    }
 }
 
 try {
@@ -41,15 +46,12 @@ try {
     $params = [];
     $types = "";
 
+    // Campos de texto (sin cambios)
     $textFields = [
-        'Proyecto' => $_POST['proyecto'] ?? '',
-        'NombreEstacion' => $_POST['nombre_estacion'] ?? '',
-        'Responsable' => $_POST['responsable'] ?? '',
-        'ActivoFijo' => $_POST['activo_fijo'] ?? null,
-        'Disposicion' => $_POST['disposicion'] ?? '',
-        'Empresa' => $_POST['contacto_empresa'] ?? '',
-        'NombreExterno' => $_POST['contacto_nombre'] ?? '',
-        'NumeroExterno' => $_POST['contacto_telefono'] ?? '',
+        'Proyecto' => $_POST['proyecto'] ?? '', 'NombreEstacion' => $_POST['nombre_estacion'] ?? '',
+        'Responsable' => $_POST['responsable'] ?? '', 'ActivoFijo' => $_POST['activo_fijo'] ?? null,
+        'Disposicion' => $_POST['disposicion'] ?? '', 'Empresa' => $_POST['contacto_empresa'] ?? '',
+        'NombreExterno' => $_POST['contacto_nombre'] ?? '', 'NumeroExterno' => $_POST['contacto_telefono'] ?? '',
         'DireccionExterno' => $_POST['contacto_direccion'] ?? ''
     ];
 
@@ -59,6 +61,7 @@ try {
         $types .= "s";
     }
 
+    // Campos de imagen (sin cambios en la lógica, pero ahora la función handleFileUpload es más robusta)
     $imageFields = [
         'ImagenEstacion' => ['file' => $_FILES['imagen_estacion'] ?? null, 'path' => RUTA_ESTACION],
         'ImagenSalida' => ['file' => $_FILES['evidencia_salida'] ?? null, 'path' => RUTA_SALIDAS],
@@ -92,6 +95,10 @@ try {
     if ($stmt->affected_rows > 0) {
         echo json_encode(["success" => true, "message" => "Registro actualizado exitosamente."]);
     } else {
+        // Ahora, si no hay filas afectadas, también verificamos si hubo un error en la consulta.
+        if ($stmt->error) {
+            throw new Exception("Error en la base de datos: " . $stmt->error);
+        }
         echo json_encode(["success" => true, "message" => "No se detectaron cambios para actualizar."]);
     }
 
