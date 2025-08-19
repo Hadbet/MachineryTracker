@@ -10,29 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f0f4f8; }
-        .modal { transition: opacity 0.25s ease; }
-        .modal-content { transition: transform 0.25s ease; }
-        .focus-ring-grammer:focus { box-shadow: 0 0 0 2px #3b82f6; }
-        .image-preview {
-            width: 100%;
-            height: 120px;
-            border: 2px dashed #9ca3af;
-            border-radius: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #f9fafb;
-            color: #6b7280;
-            font-weight: 500;
-            overflow: hidden;
-            position: relative;
-        }
-        .image-preview img { width: 100%; height: 100%; object-fit: cover; }
-        .image-preview span { font-size: 0.875rem; }
-        .active-link { color: #60a5fa; font-weight: 600; border-bottom: 2px solid #60a5fa; }
-    </style>
+    <link href="css/main.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
 

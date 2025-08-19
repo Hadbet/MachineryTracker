@@ -10,43 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Custom styles to enhance Tailwind */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f0f4f8; /* Light blue-gray background */
-        }
-        .active-link {
-            color: #60a5fa; /* Un azul más brillante para destacar */
-            font-weight: 600; /* Semibold */
-            border-bottom: 2px solid #60a5fa;
-        }
-        /* Custom focus ring color */
-        .focus-ring-grammer:focus {
-            --tw-ring-opacity: 1;
-            --tw-ring-color: #3b82f6; /* A nice blue color for focus */
-            box-shadow: 0 0 0 2px var(--tw-ring-color);
-        }
-        /* Style for image preview containers */
-        .image-preview {
-            width: 100%;
-            height: 150px;
-            border: 2px dashed #9ca3af;
-            border-radius: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #f9fafb;
-            color: #6b7280;
-            font-weight: 500;
-            overflow: hidden; /* Ensures the image fits within the rounded corners */
-        }
-        .image-preview img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    </style>
+    <link href="css/main.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
 

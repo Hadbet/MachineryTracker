@@ -10,25 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f0f4f8; }
-        .modal { transition: opacity 0.25s ease; }
-        .modal-content { transition: transform 0.25s ease; }
-        .details-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
-        .detail-item { background-color: #f9fafb; padding: 0.75rem; border-radius: 0.5rem; border: 1px solid #e5e7eb; transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; }
-        .detail-item:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .detail-item dt { font-weight: 600; color: #4b5563; }
-        .detail-item dd { color: #1f2937; margin-top: 0.25rem; }
-        .detail-image { width: 100%; height: 200px; object-fit: cover; border-radius: 0.5rem; border: 1px solid #e5e7eb; cursor: pointer; transition: transform 0.2s ease-in-out; }
-        .detail-image:hover { transform: scale(1.05); }
-        .image-viewer { position: fixed; inset: 0; background-color: rgba(0,0,0,0.75); z-index: 1001; display: flex; align-items: center; justify-content: center; cursor: pointer; }
-        .image-viewer img { max-width: 90vw; max-height: 90vh; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .active-link {
-            color: #60a5fa; /* Un azul más brillante para destacar */
-            font-weight: 600; /* Semibold */
-            border-bottom: 2px solid #60a5fa;
-        }
-    </style>
+    <link href="css/main.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
 

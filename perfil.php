@@ -10,15 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f0f4f8; }
-        .focus-ring-grammer:focus { box-shadow: 0 0 0 2px #3b82f6; }
-        .active-link {
-            color: #60a5fa; /* Un azul más brillante para destacar */
-            font-weight: 600; /* Semibold */
-            border-bottom: 2px solid #60a5fa;
-        }
-    </style>
+    <link href="css/main.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100 flex flex-col min-h-screen">
 
