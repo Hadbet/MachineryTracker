@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
+    <link rel="icon" href="images/Grammer_Logo.ico" type="image/x-icon">
 </head>
 <body class="bg-gray-100">
 
