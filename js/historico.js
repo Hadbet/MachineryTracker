@@ -35,7 +35,7 @@ function displayRecords(records) {
                     <td class="px-6 py-4">${record.Responsable}</td>
                     <td class="px-6 py-4">${record.Empresa}</td>
                     <td class="px-6 py-4">${new Date(record.Fecha).toLocaleDateString()}</td>
-                    <td class="px-6 py-4"><button class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600">Detalles</button></td>
+                    <td class="px-6 py-4"><button class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600">Details</button></td>
                 `;
         row.querySelector('button').addEventListener('click', () => viewDetails(record));
         tableBody.appendChild(row);

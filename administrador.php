@@ -27,13 +27,13 @@
 
         <!-- Filters -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-6">
-            <input type="text" id="filterProyecto" placeholder="Filtrar por Proyecto..."
+            <input type="text" id="filterProyecto" placeholder="Filter by Project..."
                    class="px-3 py-2 border border-gray-300 rounded-md">
-            <input type="text" id="filterEstacion" placeholder="Filtrar por Estación..."
+            <input type="text" id="filterEstacion" placeholder="Filter by Station..."
                    class="px-3 py-2 border border-gray-300 rounded-md">
-            <input type="text" id="filterResponsable" placeholder="Filtrar por Responsable..."
+            <input type="text" id="filterResponsable" placeholder="Filter by Responsible..."
                    class="px-3 py-2 border border-gray-300 rounded-md">
-            <input type="text" id="filterEmpresa" placeholder="Filtrar por Empresa..."
+            <input type="text" id="filterEmpresa" placeholder="Filter by Company..."
                    class="px-3 py-2 border border-gray-300 rounded-md">
             <input type="date" id="filterFecha" class="px-3 py-2 border border-gray-300 rounded-md">
         </div>
