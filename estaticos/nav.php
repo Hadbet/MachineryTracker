@@ -28,15 +28,15 @@ if ($rol === 1 && $currentPage === 'usuario.php'){
 
     <!-- Desktop Menu -->
     <div class="hidden md:flex items-center space-x-6">
-        <a href="inicio.php" class="<?php echo ($currentPage == 'inicio.php') ? 'active-link' : 'hover:text-blue-300'; ?> transition-colors">Inicio</a>
+        <a href="inicio.php" class="<?php echo ($currentPage == 'inicio.php') ? 'active-link' : 'hover:text-blue-300'; ?> transition-colors">Home</a>
         <?php
         if ($rol === 2){
             ?>
-            <a href="usuario.php" class="<?php echo ($currentPage == 'usuario.php') ? 'active-link' : 'hover:text-blue-300'; ?> transition-colors">Usuarios</a>
-            <a href="administrador.php" class="<?php echo ($currentPage == 'administrador.php') ? 'active-link' : 'hover:text-blue-300'; ?> transition-colors">Edición</a>
+            <a href="usuario.php" class="<?php echo ($currentPage == 'usuario.php') ? 'active-link' : 'hover:text-blue-300'; ?> transition-colors">Users</a>
+            <a href="administrador.php" class="<?php echo ($currentPage == 'administrador.php') ? 'active-link' : 'hover:text-blue-300'; ?> transition-colors">Edition</a>
         <?php } ?>
-        <a href="historico.php" class="<?php echo ($currentPage == 'historico.php') ? 'active-link' : 'hover:text-blue-300'; ?> transition-colors">Estaciones</a>
-        <a href="perfil.php" class="<?php echo ($currentPage == 'perfil.php') ? 'active-link' : 'hover:text-blue-300'; ?> transition-colors">Perfil</a>
+        <a href="historico.php" class="<?php echo ($currentPage == 'historico.php') ? 'active-link' : 'hover:text-blue-300'; ?> transition-colors">Stations</a>
+        <a href="perfil.php" class="<?php echo ($currentPage == 'perfil.php') ? 'active-link' : 'hover:text-blue-300'; ?> transition-colors">Profile</a>
     </div>
 
     <!-- Mobile Menu Button -->
@@ -51,15 +51,15 @@ if ($rol === 1 && $currentPage === 'usuario.php'){
 
 <!-- Mobile Menu -->
 <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-    <a href="inicio.php" class="block py-2 <?php echo ($currentPage == 'inicio.php') ? 'text-blue-300 font-bold' : 'hover:text-blue-300'; ?>">Inicio</a>
+    <a href="inicio.php" class="block py-2 <?php echo ($currentPage == 'inicio.php') ? 'text-blue-300 font-bold' : 'hover:text-blue-300'; ?>">Home</a>
     <?php
     if ($rol === 2){
         ?>
-        <a href="usuario.php" class="block py-2 <?php echo ($currentPage == 'usuario.php') ? 'text-blue-300 font-bold' : 'hover:text-blue-300'; ?>">Usuarios</a>
-        <a href="administrador.php" class="block py-2 <?php echo ($currentPage == 'administrador.php') ? 'text-blue-300 font-bold' : 'hover:text-blue-300'; ?>">Edición</a>
+        <a href="usuario.php" class="block py-2 <?php echo ($currentPage == 'usuario.php') ? 'text-blue-300 font-bold' : 'hover:text-blue-300'; ?>">Users</a>
+        <a href="administrador.php" class="block py-2 <?php echo ($currentPage == 'administrador.php') ? 'text-blue-300 font-bold' : 'hover:text-blue-300'; ?>">Edition</a>
         <?php
     }
     ?>
-    <a href="historico.php" class="block py-2 <?php echo ($currentPage == 'historico.php') ? 'text-blue-300 font-bold' : 'hover:text-blue-300'; ?>">Estaciones</a>
-    <a href="perfil.php" class="block py-2 <?php echo ($currentPage == 'perfil.php') ? 'text-blue-300 font-bold' : 'hover:text-blue-300'; ?>">Perfil</a>
+    <a href="historico.php" class="block py-2 <?php echo ($currentPage == 'historico.php') ? 'text-blue-300 font-bold' : 'hover:text-blue-300'; ?>">Stations</a>
+    <a href="perfil.php" class="block py-2 <?php echo ($currentPage == 'perfil.php') ? 'text-blue-300 font-bold' : 'hover:text-blue-300'; ?>">Profile</a>
 </div>
