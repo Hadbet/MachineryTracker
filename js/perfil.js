@@ -10,13 +10,13 @@ changePasswordForm.addEventListener('submit', async (e) => {
 
     // Client-side validation
     if (newPassword !== confirmPassword) {
-        formMessage.innerHTML = '<p class="text-red-600">Las nuevas contraseñas no coinciden.</p>';
+        formMessage.innerHTML = '<p class="text-red-600">The new passwords do not match.</p>';
         return;
     }
 
     formMessage.textContent = '';
     submitButton.disabled = true;
-    submitButton.textContent = 'Actualizando...';
+    submitButton.textContent = 'Update ...';
 
     const formData = new FormData(changePasswordForm);
     // Replace with the URL of your PHP script for updating the password
@@ -40,6 +40,6 @@ changePasswordForm.addEventListener('submit', async (e) => {
         formMessage.innerHTML = `<p class="text-red-600">Error: ${error.message}</p>`;
     } finally {
         submitButton.disabled = false;
-        submitButton.textContent = 'Actualizar Contraseña';
+        submitButton.textContent = 'Update Password';
     }
 });

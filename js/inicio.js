@@ -111,7 +111,7 @@ form.addEventListener('submit', async (event) => {
     event.preventDefault();
 
     submitButton.disabled = true;
-    submitButton.textContent = 'Procesando imágenes...';
+    submitButton.textContent = 'Processing images...';
     formMessage.textContent = '';
 
     const formData = new FormData();
@@ -141,7 +141,7 @@ form.addEventListener('submit', async (event) => {
 
         await Promise.all(resizePromises);
 
-        submitButton.textContent = 'Enviando...';
+        submitButton.textContent = 'Sending...';
 
         const url = 'https://grammermx.com/Ingenieria/MachineryTracker/dao/daoRegistroMaquinaria.php'; // Your PHP script URL
         const response = await fetch(url, {
@@ -158,7 +158,7 @@ form.addEventListener('submit', async (event) => {
         if (result.status === 'success') {
 
             Swal.fire({
-                title: "Registrado!",
+                title: "Registered!",
                 icon: "success",
                 draggable: true
             });

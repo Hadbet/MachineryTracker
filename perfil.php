@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil de Usuario - Machinery Tracker</title>
+    <title>User Profile - Machinery Tracker</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Inter -->
@@ -24,34 +24,34 @@
 <main class="container mx-auto p-4 md:p-8 flex-grow flex items-center justify-center">
     <div class="w-full max-w-lg">
         <div class="bg-white p-8 rounded-xl shadow-md">
-            <h2 class="text-2xl font-bold text-gray-800 text-center border-b-2 border-blue-600 pb-4 mb-6">Mi Perfil</h2>
+            <h2 class="text-2xl font-bold text-gray-800 text-center border-b-2 border-blue-600 pb-4 mb-6">My Profile</h2>
 
             <!-- Change Password Form -->
             <form id="changePasswordForm">
-                <h3 class="text-lg font-semibold text-gray-700 mb-4">Cambiar Contraseña</h3>
+                <h3 class="text-lg font-semibold text-gray-700 mb-4">Change Password</h3>
                 <div class="space-y-4">
                     <div>
-                        <label for="current_password" class="block text-sm font-medium text-gray-700">Contraseña
-                            Actual</label>
+                        <label for="current_password" class="block text-sm font-medium text-gray-700">Password
+                            Current</label>
                         <input type="password" id="current_password" name="current_password" required
                                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus-ring-grammer">
                     </div>
                     <div>
-                        <label for="new_password" class="block text-sm font-medium text-gray-700">Nueva
-                            Contraseña</label>
+                        <label for="new_password" class="block text-sm font-medium text-gray-700">New
+                            Password</label>
                         <input type="password" id="new_password" name="new_password" required
                                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus-ring-grammer">
                     </div>
                     <div>
-                        <label for="confirm_password" class="block text-sm font-medium text-gray-700">Confirmar Nueva
-                            Contraseña</label>
+                        <label for="confirm_password" class="block text-sm font-medium text-gray-700">Confirm New
+                            Password</label>
                         <input type="password" id="confirm_password" name="confirm_password" required
                                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus-ring-grammer">
                     </div>
                 </div>
                 <button type="submit" id="submit-button"
                         class="mt-6 w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                    Actualizar Contraseña
+                    Update Password
                 </button>
                 <div id="form-message" class="mt-4 text-center"></div>
             </form>

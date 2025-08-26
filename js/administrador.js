@@ -149,7 +149,7 @@ document.getElementById('editForm').addEventListener('submit', async (e) => {
         const response = await fetch(url, { method: 'POST', body: formData });
         const result = await response.json();
         if (result.success) {
-            alert('Registro actualizado exitosamente.');
+            alert('Registration successfully updated.');
             closeModal();
             loadResults(); // Refresh table
         } else {
