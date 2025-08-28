@@ -84,26 +84,26 @@ function viewDetails(record) {
 
     detailsContainer.innerHTML = `
                 <div class="details-grid">
-                    <div class="detail-item"><dt>Proyecto</dt><dd>${record.Proyecto}</dd></div>
-                    <div class="detail-item"><dt>Nombre de Estación</dt><dd>${record.NombreEstacion}</dd></div>
-                    <div class="detail-item"><dt>Responsable</dt><dd>${record.Responsable}</dd></div>
-                    <div class="detail-item"><dt>Activo Fijo</dt><dd>${record.ActivoFijo || 'N/A'}</dd></div>
-                    <div class="detail-item"><dt>Disposición</dt><dd>${record.Disposicion}</dd></div>
-                    <div class="detail-item"><dt>Fecha de Registro</dt><dd>${new Date(record.Fecha).toLocaleString()}</dd></div>
+                    <div class="detail-item"><dt>Proyect</dt><dd>${record.Proyecto}</dd></div>
+                    <div class="detail-item"><dt>Station Name</dt><dd>${record.NombreEstacion}</dd></div>
+                    <div class="detail-item"><dt>Responsible</dt><dd>${record.Responsable}</dd></div>
+                    <div class="detail-item"><dt>Fixed Assets</dt><dd>${record.ActivoFijo || 'N/A'}</dd></div>
+                    <div class="detail-item"><dt>Provision</dt><dd>${record.Disposicion}</dd></div>
+                    <div class="detail-item"><dt>Registration Date</dt><dd>${new Date(record.Fecha).toLocaleString()}</dd></div>
                 </div>
                 <h3 class="text-xl font-bold text-gray-800 mt-6 mb-4 border-b pb-2">Contacto Externo</h3>
                 <div class="details-grid">
-                    <div class="detail-item"><dt>Empresa</dt><dd>${record.Empresa}</dd></div>
-                    <div class="detail-item"><dt>Nombre</dt><dd>${record.NombreExterno}</dd></div>
-                    <div class="detail-item"><dt>Teléfono</dt><dd>${record.NumeroExterno}</dd></div>
-                    <div class="detail-item md:col-span-2"><dt>Dirección</dt><dd>${record.DireccionExterno}</dd></div>
+                    <div class="detail-item"><dt>Enterprise</dt><dd>${record.Empresa}</dd></div>
+                    <div class="detail-item"><dt>Name</dt><dd>${record.NombreExterno}</dd></div>
+                    <div class="detail-item"><dt>Telephone</dt><dd>${record.NumeroExterno}</dd></div>
+                    <div class="detail-item md:col-span-2"><dt>Address</dt><dd>${record.DireccionExterno}</dd></div>
                 </div>
                 <h3 class="text-xl font-bold text-gray-800 mt-6 mb-4 border-b pb-2">Evidencias Fotográficas</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div><p class="font-semibold mb-2 text-center">Imagen Estación</p>${renderImage(record.ImagenEstacion, 'estacion')}</div>
-                    <div><p class="font-semibold mb-2 text-center">Evidencia Salida</p>${renderImage(record.ImagenSalida, 'salidas')}</div>
-                    <div><p class="font-semibold mb-2 text-center">Evidencia Entrada</p>${renderImage(record.ImagenEntrada, 'entradas')}</div>
-                    <div><p class="font-semibold mb-2 text-center">Evidencia Resguardo</p>${renderImage(record.ImagenEvidenciaResguardo, 'resguardo')}</div>
+                    <div><p class="font-semibold mb-2 text-center">Station Image</p>${renderImage(record.ImagenEstacion, 'estacion')}</div>
+                    <div><p class="font-semibold mb-2 text-center">Evidence Exit</p>${renderImage(record.ImagenSalida, 'salidas')}</div>
+                    <div><p class="font-semibold mb-2 text-center">Evidence Entry</p>${renderImage(record.ImagenEntrada, 'entradas')}</div>
+                    <div><p class="font-semibold mb-2 text-center">Evidence Safeguard</p>${renderImage(record.ImagenEvidenciaResguardo, 'resguardo')}</div>
                 </div>
             `;
 
